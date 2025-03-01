@@ -15,7 +15,7 @@ int main()
     // Apontuação e acentuação foi modificada para otimizar a leitura no terminal  
 
 
-    
+    //Criação de variaveis da primeira carta.
     char estado1[3];
     char codigo1[3];
     char nome1[20];
@@ -24,6 +24,7 @@ int main()
     float pib1;
     int pontosTuristicos1;
 
+    //Criação de variaveis da segunda carta.
     char estado2[3];
     char codigo2[3];
     char nome2[20];
@@ -32,6 +33,7 @@ int main()
     float pib2;
     int pontosTuristicos2;
 
+    //Iteração inicial com o usuário, coleta de dados das cartas 1 e 2. 
     printf("Olá, vamos criar duas cartas de cidades! \n");
     printf("\n");
     
@@ -83,9 +85,16 @@ int main()
 
     printf("Digite a quantidade de pontos turísticos: \n");
     scanf("%i", &pontosTuristicos2);
-
-    printf("\n");
     
+
+    /*
+    Ainda nao tenho certeza se é a melhor opção mas usei o "printf" sem nenhum valor inserido
+    apenas para criar espaços entre as linhas, organizando um pouco melhor a saida no terminal.
+     */
+    printf("\n"); 
+    
+
+    //Os dados coletados das duas cartas são exibidos no terminal.
     printf("Carta 1: \n");
     printf("O estado é: %s\n", estado1);
     printf("O código é: %s\n", codigo1);
@@ -96,7 +105,7 @@ int main()
     printf("A quantidade de pontos turísticos é: %i\n", pontosTuristicos1);
 
     printf("\n");
-    printf("\n");
+    printf("\n");//Novamente apenas para gerar espaço entre linhas.
     printf("Carta 2: \n");
     printf("O estado é: %s\n", estado2);
     printf("O código é: %s\n", codigo2);
