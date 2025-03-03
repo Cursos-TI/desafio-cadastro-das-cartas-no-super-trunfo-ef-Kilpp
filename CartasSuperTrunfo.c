@@ -33,8 +33,9 @@ int main()
     float pib2;
     int pontosTuristicos2;
 
+   
     //Iteração inicial com o usuário, coleta de dados das cartas 1 e 2. 
-    printf("Olá, vamos criar duas cartas de cidades! \n");
+    printf("*** Olá! Bem vindo ao Super Trunfo Cidades!*** \n");
     printf("\n");
     
     printf("Insira os dados da primeira carta \n");
@@ -86,6 +87,13 @@ int main()
     printf("Digite a quantidade de pontos turísticos: \n");
     scanf("%i", &pontosTuristicos2);
 
+
+     //MANIPULADROES DE DADOS - calculos para encontrar densidade e pib per capita de cada carta
+     float densidade1 = (float) populacao1 / area1;
+     float densidade2 = (float) populacao2 / area2;
+     float pibPerCapita1 = (float) pib1 / populacao1;
+     float pibPerCapita2 = (float) pib2 / populacao2;
+
     /*
     Ainda nao tenho certeza se é a melhor opção mas usei o "printf" sem nenhum valor inserido
     apenas para criar espaços entre as linhas, organizando um pouco melhor a saida no terminal.
@@ -102,6 +110,9 @@ int main()
     printf("A área é: %.2f\n", area1);
     printf("O PIB é: %.2f\n", pib1);
     printf("A quantidade de pontos turísticos é: %i\n", pontosTuristicos1);
+    printf("A densidade é: %.2f hab/Km²\n", densidade1);
+    printf("O PIB per capita é: %.2f Reais\n", pibPerCapita1);
+
 
     printf("\n");
     printf("\n");//Novamente apenas para gerar espaço entre linhas.
@@ -113,7 +124,8 @@ int main()
     printf("A área é: %.2f\n", area2);
     printf("O PIB é: %.2f\n", pib2);
     printf("A quantidade de pontos turísticos é: %i\n", pontosTuristicos2);
-
+    printf("A densidade é: %.2f hab/Km²\n", densidade2);
+    printf("O PIB per capita é: %.2f Reais\n", pibPerCapita2);
     printf("\n");
 
     return 0;
