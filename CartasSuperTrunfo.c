@@ -44,15 +44,15 @@ int main()
     scanf("%2s", estado1);
 
     printf("Insira o código: \n");
-    scanf("%2s", codigo1);
+    scanf("%s", codigo1);
 
     printf("Digite o nome da cidade: \n");
-    scanf("%19s", nome1);
+    scanf("%s", nome1);
 
     printf("Digite a população: \n");
     scanf("%i", &populacao1);
 
-    printf("Digite a área: \n");
+    printf("Digite a á¡rea: \n");
     scanf("%f", &area1);
 
     printf("Digite o PIB: \n");
@@ -69,10 +69,10 @@ int main()
     scanf("%2s", estado2);
 
     printf("Insira o código: \n");
-    scanf("%2s", codigo2);
+    scanf("%s", codigo2);
 
     printf("Digite o nome da cidade: \n");
-    scanf("%19s", nome2);
+    scanf("%s", nome2);
 
     printf("Digite a população: \n");
     scanf("%i", &populacao2);
@@ -85,7 +85,6 @@ int main()
 
     printf("Digite a quantidade de pontos turísticos: \n");
     scanf("%i", &pontosTuristicos2);
-    
 
     /*
     Ainda nao tenho certeza se é a melhor opção mas usei o "printf" sem nenhum valor inserido
@@ -114,6 +113,8 @@ int main()
     printf("A área é: %.2f\n", area2);
     printf("O PIB é: %.2f\n", pib2);
     printf("A quantidade de pontos turísticos é: %i\n", pontosTuristicos2);
+
+    printf("\n");
 
     return 0;
 }
