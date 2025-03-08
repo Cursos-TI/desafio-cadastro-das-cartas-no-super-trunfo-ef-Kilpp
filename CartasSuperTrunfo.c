@@ -4,18 +4,15 @@
 // Etapa 1 - Cadastro das Cartas
 // Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades do jogo.
 
+// Etapa 2 - Criar calculos para variáveis.
+
+// Etapa 3 - Comparar pontuações e atributos para definição da carta vencedora
+
 // E.F.K.
 
-#include <stdio.h>
-#include <locale.h>
-
-int main()
-{    
-    setlocale(LC_ALL, "Portuguese_Brazil");
-    // Apontuação e acentuação foi modificada para otimizar a leitura no terminal  
-
-
-    //Criação de variaveis da primeira carta.
+int main(){    
+   
+    //Declarando variaveis da primeira carta.
     char estado1[3];
     char codigo1[3];
     char nome1[20];
@@ -23,8 +20,9 @@ int main()
     float area1;
     float pib1;
     int pontosTuristicos1;
+    int PtC1;
 
-    //Criação de variaveis da segunda carta.
+    //Declarando variaveis da segunda carta.
     char estado2[3];
     char codigo2[3];
     char nome2[20];
@@ -32,6 +30,7 @@ int main()
     float area2;
     float pib2;
     int pontosTuristicos2;
+    int PtC2;
 
    
     //Iteração inicial com o usuário, coleta de dados das cartas 1 e 2. 
@@ -53,7 +52,7 @@ int main()
     printf("Digite a população: \n");
     scanf("%i", &populacao1);
 
-    printf("Digite a á¡rea: \n");
+    printf("Digite a área: \n");
     scanf("%f", &area1);
 
     printf("Digite o PIB: \n");
@@ -94,6 +93,26 @@ int main()
      float pibPerCapita1 = (float) pib1 / populacao1;
      float pibPerCapita2 = (float) pib2 / populacao2;
 
+     /*
+     A densidade populacional é um ponto negativo, foi feita a conversão para um fator positivo
+     para ser atribuida a pontuação final da carta.
+     */
+     float densidadeComp1 = (float) 1 / densidade1;
+     float densidadeComp2 = (float) 1 / densidade2;
+
+     //Uma nova variavel é inserida para gerar pontos de carta baseada em seus atributos.
+     float pts1 = (float) area1 + pontosTuristicos1 + densidadeComp1 + pibPerCapita1;
+     float pts2 = (float) area2 + pontosTuristicos2 + densidadeComp2 + pibPerCapita2;
+
+     //Comparação de valores entre cartas.
+ 
+     int resultadoPopulacao = populacao1 > populacao2;
+     int resultadoArea = area1 > area2;
+     int resultadoPIB = pib1 > pib2;
+     int resultadoPontosTuristicos = pontosTuristicos1 > pontosTuristicos2;
+     int resultadoDensidade = densidade1 < densidade2;
+     int resultadoPIBPerCapita = pibPerCapita1 > pibPerCapita2;
+     int resultadoPts = pts1 > pts2;
     /*
     Ainda nao tenho certeza se é a melhor opção mas usei o "printf" sem nenhum valor inserido
     apenas para criar espaços entre as linhas, organizando um pouco melhor a saida no terminal.
@@ -102,7 +121,8 @@ int main()
     
 
     //Os dados coletados das duas cartas são exibidos no terminal.
-    printf("Carta 1: \n");
+    printf("Carta 1:\n");
+    printf("Pts: %2.f\n", pts1);
     printf("O estado é: %s\n", estado1);
     printf("O código é: %s\n", codigo1);
     printf("O nome da cidade é: %s\n", nome1);
@@ -117,6 +137,7 @@ int main()
     printf("\n");
     printf("\n");//Novamente apenas para gerar espaço entre linhas.
     printf("Carta 2: \n");
+    printf("Pts: %2.f\n", pts2);
     printf("O estado é: %s\n", estado2);
     printf("O código é: %s\n", codigo2);
     printf("O nome da cidade é: %s\n", nome2);
@@ -126,6 +147,18 @@ int main()
     printf("A quantidade de pontos turísticos é: %i\n", pontosTuristicos2);
     printf("A densidade é: %.2f hab/Km²\n", densidade2);
     printf("O PIB per capita é: %.2f Reais\n", pibPerCapita2);
+    printf("\n");
+
+    //Resulado: se "1", a primeira carta vence. Se "0" a segunda carta vence.
+    printf("Comparando Cartas! \n");
+    printf("\n");   
+    printf("População: Carta 1 venveu? %d\n", resultadoPopulacao);
+    printf("Área: Carta 1 venveu? %d\n", resultadoArea);
+    printf("PIB: Carta 1 venveu? %d\n", resultadoPIB);
+    printf("Pontos Turísticos: Carta 1 venveu? %d\n", resultadoPontosTuristicos);
+    printf("Densidade: Carta 1 venveu? %d\n", resultadoDensidade);
+    printf("PIB per Capita: Carta 1 venveu? %d\n", resultadoPIBPerCapita);
+    printf("Pontos: Carta 1 venveu? %d\n", resultadoPts);
     printf("\n");
 
     return 0;
