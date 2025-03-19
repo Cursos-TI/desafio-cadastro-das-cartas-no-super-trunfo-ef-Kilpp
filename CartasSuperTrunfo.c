@@ -100,12 +100,14 @@ int main(){
      float densidadeComp1 = (float) 1 / densidade1;
      float densidadeComp2 = (float) 1 / densidade2;
 
-     //Uma nova variavel é inserida para gerar pontos de carta baseada em seus atributos.
+     // Uma nova variavel é inserida para gerar pontos de carta baseada em seus atributos.
      float pts1 = (float) area1 + pontosTuristicos1 + densidadeComp1 + pibPerCapita1;
      float pts2 = (float) area2 + pontosTuristicos2 + densidadeComp2 + pibPerCapita2;
 
-     //Comparação de valores entre cartas.
- 
+     // Comparação de valores entre cartas.
+     // (valores serão exibidos separadamente, não mais em grupos, sendo desnecessário o trecho a seguir).
+    
+     /*
      int resultadoPopulacao = populacao1 > populacao2;
      int resultadoArea = area1 > area2;
      int resultadoPIB = pib1 > pib2;
@@ -113,14 +115,25 @@ int main(){
      int resultadoDensidade = densidade1 < densidade2;
      int resultadoPIBPerCapita = pibPerCapita1 > pibPerCapita2;
      int resultadoPts = pts1 > pts2;
-    /*
+    */
+    
+    
+     /*
     Ainda nao tenho certeza se é a melhor opção mas usei o "printf" sem nenhum valor inserido
     apenas para criar espaços entre as linhas, organizando um pouco melhor a saida no terminal.
      */
     printf("\n"); 
     
 
-    //Os dados coletados das duas cartas são exibidos no terminal.
+
+    // Os dados coletados das duas cartas são exibidos no terminal.
+
+    /* Algumas alterações serão feitas em seguida, os dados não serão mais exibidos genericamente no 
+    portanto, alumas linhas de códogo serão "comentadas" dando lugar a uma outra função que sera descrita 
+    em seguida.
+    */
+
+    /*
     printf("Carta 1:\n");
     printf("Pts: %2.f\n", pts1);
     printf("O estado é: %s\n", estado1);
@@ -160,6 +173,64 @@ int main(){
     printf("PIB per Capita: Carta 1 venveu? %d\n", resultadoPIBPerCapita);
     printf("Pontos: Carta 1 venveu? %d\n", resultadoPts);
     printf("\n");
+    */
+
+    //Agora, os vlaores exibidos serão baseados nas escolhas dos atributos feitas pelo usuario.
+
+    printf("Escolha qual atributo você deseja comparar: \n");
+    printf("\n");
+    printf("1 - População \n");
+    printf("2 - Área \n");
+    printf("3 - PIB \n");
+    printf("4 - Pontos Turísticos \n");
+    printf("5 - Densidade Populacional");
+    printf("6 - PIB Per Cápta");
+    printf("7 - Pntuação");
+
+    int escolhas;
+    scanf("%i", &escolhas);
+
+    switch (escolhas)
+    {
+        case 1:
+        
+            if (populacao1 > populacao2);
+            {
+                printf("Carta 1, %s = %d habitantes \n", nome1, populacao1);
+                printf("Carta 2, %s = %d habitantes \n", nome2, populacao2);
+                printf("***Carta 1 Venceu!***");
+            }
+            else
+            {
+                printf("Carta 1, %s = %d habitantes \n", nome1, populacao1);
+                printf("Carta 2, %s = %d habitantes \n", nome2, populacao2);
+                printf("***Carta 2 Venceu!***");
+            }
+            break;
+        
+        case 2:
+            
+            if (area1 > area2)
+            {
+                printf("Carta 1 %s = %.2f Km²", nome1, area1);
+                printf("Carta 2 %s = %.2f Km²", nome2, area2);
+                printf("***Carta 1 Venceu!***");
+            }
+            else
+            {
+                printf("Carta 1 %s = %.2f Km²", nome1, area1);
+                printf("Carta 2 %s = %.2f Km²", nome2, area2);
+                printf("***Carta 2 Venceu!***");
+            }
+            break;
+
+        case 3:
+
+    default:
+        break;
+    }
+
+
 
     return 0;
 }
